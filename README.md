@@ -39,4 +39,4 @@ wake word
     
 sleep word
 
-    -robotino ein    
+    -robotino aus   
