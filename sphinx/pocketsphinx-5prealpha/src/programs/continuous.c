@@ -69,10 +69,10 @@
 #include <sphinxbase/ad.h>
 
 #include "pocketsphinx.h"
-//UN added
+//RO added
 int listen=1;
 int gosleeptime=25;
-//end UN
+//end RO
 
 
 void TimerStop(int signum) {
