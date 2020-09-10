@@ -1,0 +1,5 @@
+{ global:
+gst_plugin_pocketsphinx_get_desc;
+gst_plugin_pocketsphinx_register;
+gst_pocketsphinx_get_type;
+local: *; };

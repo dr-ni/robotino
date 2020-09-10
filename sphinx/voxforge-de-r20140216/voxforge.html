@@ -1,0 +1,929 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+<head>
+<meta http-equiv="REFRESH" content="60">
+<title>voxforge</title>
+<style type="text/css">
+body {
+ background: #f0f0f5;
+}
+p,span {
+ font-family: monospace;
+}
+p {
+ margin-right: 6em;
+}
+p.phase {
+ font-weight: bold;
+ margin-bottom: 0;
+}
+p.result, p.WARNING, p.error {
+ margin-top: 0;
+ margin-bottom: 0;
+ margin-left: 5em;
+}
+span.status {
+ float: right;
+ margin-top: -1em;
+}
+.passed, .completed {
+ color: #00D000;
+}
+.WARNING, .warning {
+ color: #555500;
+}
+.FAILED, .error {
+ color: #DD0000;
+}
+</style>
+</head>
+<body>
+<h1 class="experiment">/home/ai/voxforge/de/work</h1>
+<h2 class="hostname">Training voxforge on dagobert.fritz.box</h2>
+<hr>
+<h3>MODULE: 000 Computing feature from audio files	(2014-02-16 03:53)</h3>
+<p class='audio files'>Extracting features from  segments starting at  (part 1 of 1) </p>
+<p class='result'>sphinx_fe <a href="file:///home/ai/voxforge/de/work/logs/000.comp_feat/voxforge.train-1-1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='audio files'>Extracting features from  segments starting at  (part 1 of 1) </p>
+<p class='result'>sphinx_fe <a href="file:///home/ai/voxforge/de/work/logs/000.comp_feat/voxforge.test-1-1.log">Log File</a></p><span class='status completed'>completed</span>
+<p>Feature extraction is done</p>
+<hr>
+<h3>MODULE: 00 verify training files	(2014-02-16 04:06)</h3>
+<p class='phase'>Phase 1: Checking to see if the dict and filler dict agrees with the phonelist file.</p>
+<p class='result'>Found 12117 words using 59 phones</p>
+<span class='status passed'>passed</span>
+<p class='phase'>Phase 2: Checking to make sure there are not duplicate entries in the dictionary</p>
+<span class='status passed'>passed</span>
+<p class='phase'>Phase 3: Check general format for the fileids file; utterance length (must be positive); files exist</p>
+<span class='status passed'>passed</span>
+<p class='phase'>Phase 4: Checking number of lines in the transcript file should match lines in fileids file</p>
+<span class='status passed'>passed</span>
+<p class='phase'>Phase 5: Determine amount of training data, see if n_tied_states seems reasonable.</p>
+<p class='result'>Estimated Total Hours Training: 34.3517666666667</p>
+<p class='result'>Rule of thumb suggests 3000, however there is no correct answer</p>
+<span class='status WARNING'>WARNING</span>
+<p class='phase'>Phase 6: Checking that all the words in the transcript are in the dictionary</p>
+<p class='result'>Words in dictionary: 12114</p>
+<p class='result'>Words in filler dictionary: 3</p>
+<span class='status passed'>passed</span>
+<p class='phase'>Phase 7: Checking that all the phones in the transcript are in the phonelist, and all phones in the phonelist appear at least once</p>
+<span class='status passed'>passed</span>
+<hr>
+<h3>MODULE: 0000 train grapheme-to-phoneme model	(2014-02-16 04:06)</h3>
+<p>Skipped (set $CFG_G2P_MODEL = 'yes' to enable)</p>
+<hr>
+<h3>MODULE: 01 Train LDA transformation	(2014-02-16 04:06)</h3>
+<p class='phase'>Phase 1: Cleaning up directories:</p>
+<span class='progress'>	accumulator...</span>
+<span class='progress'>logs...</span>
+<span class='progress'>qmanager...
+</span>
+<span class='status completed'>completed</span>
+<p class='phase'>Phase 2: Flat initialize</p>
+<p class='result'>mk_mdef_gen <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.make_ci_mdef_fromphonelist.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>mk_flat <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.makeflat_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>init_gau <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.initmean_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.normmean_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>init_gau <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.initvar_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.normvar_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>cp_parm <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.cpmean_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>cp_parm <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.cpvar_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='phase'>Phase 3: Forward-Backward</p>
+<p class='result'>Baum welch starting for LDA, iteration: 1 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.1-1.bw.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 1</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.1.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -154.942055381916</p>
+<p class='result'>Baum welch starting for LDA, iteration: 2 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.2-1.bw.log">Log File</a></p><p class='error'>This step had 42 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 2</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.2.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -151.716051217349</p>
+<p class='result'>Convergence Ratio = 3.22600416456666</p>
+<p class='result'>Baum welch starting for LDA, iteration: 3 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.3-1.bw.log">Log File</a></p><p class='error'>This step had 22 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 3</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.3.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -149.348073789108</p>
+<p class='result'>Convergence Ratio = 2.36797742824101</p>
+<p class='result'>Baum welch starting for LDA, iteration: 4 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.4-1.bw.log">Log File</a></p><p class='error'>This step had 30 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 4</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.4.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -147.316084590788</p>
+<p class='result'>Convergence Ratio = 2.03198919832022</p>
+<p class='result'>Baum welch starting for LDA, iteration: 5 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.5-1.bw.log">Log File</a></p><p class='error'>This step had 44 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 5</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.5.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -146.605572277114</p>
+<p class='result'>Convergence Ratio = 0.710512313674371</p>
+<p class='result'>Baum welch starting for LDA, iteration: 6 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.6-1.bw.log">Log File</a></p><p class='error'>This step had 52 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 6</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.6.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -146.476011723786</p>
+<p class='result'>Convergence Ratio = 0.129560553327707</p>
+<p class='result'>Baum welch starting for LDA, iteration: 7 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.7-1.bw.log">Log File</a></p><p class='error'>This step had 52 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 7</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.7.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -146.444274358681</p>
+<p class='result'>Current Overall Likelihood Per Frame = -146.444274358681</p>
+<p class='result'>Convergence Ratio = 0.0317373651053572</p>
+<p class='phase'>Phase 4: LDA transform estimation</p>
+<p class='result'>Baum welch starting for LDA, iteration: N (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.N-1.bw.log">Log File</a></p><p class='error'>This step had 54 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>/apps/cmusphinx/lib/sphinxtrain/python/cmusphinx/lda.py <a href="file:///home/ai/voxforge/de/work/logs/01.lda_train/voxforge.lda_train.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>LDA Training completed</p>
+<hr>
+<h3>MODULE: 06 Train MLLT transformation	(2014-02-16 04:50)</h3>
+<p class='phase'>Phase 1: Cleaning up directories:</p>
+<span class='progress'>	accumulator...</span>
+<span class='progress'>logs...</span>
+<span class='progress'>qmanager...
+</span>
+<span class='status completed'>completed</span>
+<p class='phase'>Phase 2: Flat initialize</p>
+<p class='result'>mk_flat <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.makeflat_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>init_gau <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.initmean_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.normmean_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>init_gau <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.initvar_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.normvar_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>cp_parm <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.cpmean_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>cp_parm <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.cpvar_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='phase'>Phase 3: Forward-Backward</p>
+<p class='result'>Baum welch starting for MLLT, iteration: 1 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.1-1.bw.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 1</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.1.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -122.295909736488</p>
+<p class='result'>Baum welch starting for MLLT, iteration: 2 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.2-1.bw.log">Log File</a></p><p class='error'>This step had 50 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 2</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.2.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -119.842826849814</p>
+<p class='result'>Convergence Ratio = 2.45308288667395</p>
+<p class='result'>Baum welch starting for MLLT, iteration: 3 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.3-1.bw.log">Log File</a></p><p class='error'>This step had 14 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 3</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.3.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -117.945277416378</p>
+<p class='result'>Convergence Ratio = 1.89754943343593</p>
+<p class='result'>Baum welch starting for MLLT, iteration: 4 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.4-1.bw.log">Log File</a></p><p class='error'>This step had 20 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 4</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.4.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -116.465657150891</p>
+<p class='result'>Convergence Ratio = 1.47962026548666</p>
+<p class='result'>Baum welch starting for MLLT, iteration: 5 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.5-1.bw.log">Log File</a></p><p class='error'>This step had 38 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 5</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.5.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -115.978945085325</p>
+<p class='result'>Convergence Ratio = 0.48671206556584</p>
+<p class='result'>Baum welch starting for MLLT, iteration: 6 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.6-1.bw.log">Log File</a></p><p class='error'>This step had 44 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 6</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.6.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -115.856997315298</p>
+<p class='result'>Convergence Ratio = 0.121947770026836</p>
+<p class='result'>Baum welch starting for MLLT, iteration: 7 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.7-1.bw.log">Log File</a></p><p class='error'>This step had 44 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 7</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.7.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -115.821356899797</p>
+<p class='result'>Current Overall Likelihood Per Frame = -115.821356899797</p>
+<p class='result'>Convergence Ratio = 0.0356404155011774</p>
+<p class='phase'>Phase 4: MLLT transform estimation</p>
+<p class='result'>Baum welch starting for MLLT, iteration: N (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.N-1.bw.log">Log File</a></p><p class='error'>This step had 44 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>/apps/cmusphinx/lib/sphinxtrain/python/cmusphinx/mllt.py <a href="file:///home/ai/voxforge/de/work/logs/02.mllt_train/voxforge.mllt_train.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>MLLT Training completed</p>
+<hr>
+<h3>MODULE: 05 Vector Quantization	(2014-02-16 05:33)</h3>
+<p>Skipped for continuous models</p>
+<hr>
+<h3>MODULE: 10 Training Context Independent models for forced alignment and VTLN	(2014-02-16 05:33)</h3>
+<p>Skipped:  $ST::CFG_FORCEDALIGN set to 'no' in sphinx_train.cfg</p>
+<p>Skipped:  $ST::CFG_VTLN set to 'no' in sphinx_train.cfg</p>
+<hr>
+<h3>MODULE: 11 Force-aligning transcripts	(2014-02-16 05:33)</h3>
+<p>Skipped:  $ST::CFG_FORCEDALIGN set to 'no' in sphinx_train.cfg</p>
+<hr>
+<h3>MODULE: 12 Force-aligning data for VTLN	(2014-02-16 05:33)</h3>
+<p>Skipped:  $ST::CFG_VTLN set to 'no' in sphinx_train.cfg</p>
+<hr>
+<h3>MODULE: 20 Training Context Independent models	(2014-02-16 05:33)</h3>
+<p class='phase'>Phase 1: Cleaning up directories:</p>
+<span class='progress'>	accumulator...</span>
+<span class='progress'>logs...</span>
+<span class='progress'>qmanager...</span>
+<span class='progress'>models...
+</span>
+<span class='status completed'>completed</span>
+<p class='phase'>Phase 2: Flat initialize</p>
+<p class='result'>mk_mdef_gen <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.make_ci_mdef_fromphonelist.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>mk_flat <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.makeflat_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>init_gau <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.initmean_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.normmean_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>init_gau <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.initvar_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.normvar_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>cp_parm <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.cpmean_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>cp_parm <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.cpvar_cihmm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='phase'>Phase 3: Forward-Backward</p>
+<p class='result'>Baum welch starting for 1 Gaussian(s), iteration: 1 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.1.1-1.bw.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 1</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.1.1.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -152.594691070393</p>
+<p class='result'>Baum welch starting for 1 Gaussian(s), iteration: 2 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.1.2-1.bw.log">Log File</a></p><p class='error'>This step had 34 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 2</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.1.2.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -149.216816272651</p>
+<p class='result'>Convergence Ratio = 3.3778747977419</p>
+<p class='result'>Baum welch starting for 1 Gaussian(s), iteration: 3 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.1.3-1.bw.log">Log File</a></p><p class='error'>This step had 20 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 3</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.1.3.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -146.652418586754</p>
+<p class='result'>Convergence Ratio = 2.56439768589698</p>
+<p class='result'>Baum welch starting for 1 Gaussian(s), iteration: 4 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.1.4-1.bw.log">Log File</a></p><p class='error'>This step had 30 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 4</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.1.4.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -144.876027159724</p>
+<p class='result'>Convergence Ratio = 1.77639142703018</p>
+<p class='result'>Baum welch starting for 1 Gaussian(s), iteration: 5 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.1.5-1.bw.log">Log File</a></p><p class='error'>This step had 44 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 5</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.1.5.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -144.41043069309</p>
+<p class='result'>Convergence Ratio = 0.465596466634253</p>
+<p class='result'>Baum welch starting for 1 Gaussian(s), iteration: 6 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.1.6-1.bw.log">Log File</a></p><p class='error'>This step had 50 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 6</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.1.6.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -144.307489081002</p>
+<p class='result'>Convergence Ratio = 0.102941612087818</p>
+<p class='result'>Baum welch starting for 1 Gaussian(s), iteration: 7 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.1.7-1.bw.log">Log File</a></p><p class='error'>This step had 62 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 7</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/20.ci_hmm/voxforge.1.7.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -144.265288841178</p>
+<p class='result'>Training completed after 7 iterations</p>
+<hr>
+<h3>MODULE: 30 Training Context Dependent models	(2014-02-16 06:05)</h3>
+<p class='phase'>Phase 1: Cleaning up directories:</p>
+<span class='progress'>	accumulator...</span>
+<span class='progress'>logs...</span>
+<span class='progress'>qmanager...
+</span>
+<span class='status completed'>completed</span>
+<p class='phase'>Phase 2: Initialization</p>
+<p class='result'>mk_mdef_gen <a href="file:///home/ai/voxforge/de/work/logs/30.cd_hmm_untied/voxforge.make_alltriphonelist.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>init_mixw <a href="file:///home/ai/voxforge/de/work/logs/30.cd_hmm_untied/voxforge.copycitocd.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='phase'>Phase 3: Forward-Backward</p>
+<p class='result'>Baum welch starting for iteration: 1 (1 of 1) </p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/30.cd_hmm_untied/voxforge.1-1.bw.log">Log File</a></p><p class='error'>This step had 58 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 1</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/30.cd_hmm_untied/voxforge.1.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -144.249770071764</p>
+<p class='result'>Baum welch starting for iteration: 2 (1 of 1) </p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/30.cd_hmm_untied/voxforge.2-1.bw.log">Log File</a></p><p class='error'>This step had 48 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 2</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/30.cd_hmm_untied/voxforge.2.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -142.149452677042</p>
+<p class='result'>Convergence Ratio = 2.10031739472177</p>
+<p class='result'>Baum welch starting for iteration: 3 (1 of 1) </p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/30.cd_hmm_untied/voxforge.3-1.bw.log">Log File</a></p><p class='error'>This step had 90 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 3</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/30.cd_hmm_untied/voxforge.3.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -141.547534184434</p>
+<p class='result'>Convergence Ratio = 0.601918492608064</p>
+<p class='result'>Baum welch starting for iteration: 4 (1 of 1) </p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/30.cd_hmm_untied/voxforge.4-1.bw.log">Log File</a></p><p class='error'>This step had 94 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 4</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/30.cd_hmm_untied/voxforge.4.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -141.453315049543</p>
+<p class='result'>Training completed after 4 iterations</p>
+<hr>
+<h3>MODULE: 40 Build Trees	(2014-02-16 06:14)</h3>
+<p class='phase'>Phase 1: Cleaning up old log files...</p>
+<p class='phase'>Phase 2: Make Questions</p>
+<p class='result'>make_quests <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.make_questions.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='phase'>Phase 3: Tree building</p>
+<p class='result'>Processing each phone with each state</p>
+<p class='result'>W 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.W.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>W 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.W.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>W 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.W.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AAH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AAH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AAH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AAH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AAH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AAH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>YY 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.YY.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>YY 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.YY.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>YY 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.YY.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Y 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.Y.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Y 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.Y.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Y 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.Y.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>HH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.HH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>HH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.HH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>HH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.HH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>CH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.CH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>CH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.CH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>CH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.CH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>JH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.JH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>JH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.JH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>JH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.JH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EEH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EEH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EEH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EEH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EEH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EEH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>X 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.X.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>X 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.X.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>X 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.X.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AE 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AE.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AE 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AE.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AE 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AE.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>ERH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.ERH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>ERH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.ERH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>ERH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.ERH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>D 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.D.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>D 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.D.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>D 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.D.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OHH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OHH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OHH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OHH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OHH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OHH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>RR 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.RR.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>RR 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.RR.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>RR 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.RR.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>TS 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.TS.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>TS 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.TS.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>TS 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.TS.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>NG 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.NG.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>NG 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.NG.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>NG 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.NG.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EE 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EE.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EE 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EE.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EE 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EE.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>PF 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.PF.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>PF 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.PF.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>PF 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.PF.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>TH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.TH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>TH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.TH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>TH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.TH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>IIH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.IIH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>IIH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.IIH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>IIH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.IIH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>UH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.UH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>UH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.UH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>UH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.UH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>IY 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.IY.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>IY 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.IY.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>IY 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.IY.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>B 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.B.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>B 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.B.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>B 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.B.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>ZH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.ZH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>ZH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.ZH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>ZH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.ZH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>G 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.G.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>G 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.G.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>G 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.G.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>F 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.F.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>F 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.F.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>F 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.F.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>CC 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.CC.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>CC 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.CC.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>CC 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.CC.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>K 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.K.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>K 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.K.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>K 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.K.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>M 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.M.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>M 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.M.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>M 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.M.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>L 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.L.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>L 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.L.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>L 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.L.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AO 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AO.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AO 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AO.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AO 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AO.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>N 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.N.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>N 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.N.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>N 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.N.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Q 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.Q.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Q 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.Q.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Q 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.Q.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>IH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.IH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>IH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.IH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>IH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.IH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>S 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.S.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>S 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.S.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>S 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.S.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>R 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.R.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>R 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.R.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>R 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.R.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EX 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EX.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EX 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EX.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EX 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EX.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AW 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AW.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AW 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AW.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AW 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AW.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>V 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.V.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>V 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.V.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>V 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.V.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AY 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AY.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AY 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AY.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AY 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AY.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AX 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AX.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AX 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AX.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>AX 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.AX.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Z 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.Z.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Z 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.Z.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Z 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.Z.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EHH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EHH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EHH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EHH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>EHH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.EHH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OO 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OO.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OO 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OO.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OO 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OO.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OI 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OI.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OI 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OI.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OI 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OI.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>P 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.P.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>P 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.P.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>P 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.P.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>UU 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.UU.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>UU 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.UU.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>UU 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.UU.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OE 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OE.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OE 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OE.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OE 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OE.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OOH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OOH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OOH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OOH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OOH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OOH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>SH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.SH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>SH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.SH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>SH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.SH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>UUH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.UUH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>UUH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.UUH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>UUH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.UUH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OY 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OY.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OY 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OY.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>OY 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.OY.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>UE 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.UE.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>UE 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.UE.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>UE 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.UE.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>YYH 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.YYH.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>YYH 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.YYH.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>YYH 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.YYH.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>T 0 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.T.0.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>T 1 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.T.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>T 2 </p>
+<p class='result'>bldtree <a href="file:///home/ai/voxforge/de/work/logs/40.buildtrees/voxforge.buildtree.T.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Skipping SIL</p>
+<hr>
+<h3>MODULE: 45 Prune Trees	(2014-02-16 06:18)</h3>
+<p class='result'>mk_mdef_gen <a href="file:///home/ai/voxforge/de/work/logs/45.prunetree/voxforge.build.alltriphones.mdef.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='phase'>Phase 1: Tree Pruning</p>
+<p class='result'>prunetree <a href="file:///home/ai/voxforge/de/work/logs/45.prunetree/voxforge.prunetree.4000.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='phase'>Phase 2: State Tying</p>
+<p class='result'>tiestate <a href="file:///home/ai/voxforge/de/work/logs/45.prunetree/voxforge.tiestate.4000.log">Log File</a></p><span class='status completed'>completed</span>
+<hr>
+<h3>MODULE: 50 Training Context dependent models	(2014-02-16 06:18)</h3>
+<p class='phase'>Phase 1: Cleaning up directories:</p>
+<span class='progress'>	accumulator...</span>
+<span class='progress'>logs...</span>
+<span class='progress'>qmanager...
+</span>
+<span class='status completed'>completed</span>
+<p class='phase'>Phase 2: Copy CI to CD initialize</p>
+<p class='result'>init_mixw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.copy.ci.2.cd.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='phase'>Phase 3: Forward-Backward</p>
+<p class='result'>Baum welch starting for 1 Gaussian(s), iteration: 1 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.1.1-1.bw.log">Log File</a></p><p class='error'>This step had 58 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 1</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.1.1.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -144.249770071764</p>
+<p class='result'>Baum welch starting for 1 Gaussian(s), iteration: 2 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.1.2-1.bw.log">Log File</a></p><p class='error'>This step had 64 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 2</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.1.2.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -142.50341843203</p>
+<p class='result'>Convergence Ratio = 1.74635163973394</p>
+<p class='result'>Baum welch starting for 1 Gaussian(s), iteration: 3 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.1.3-1.bw.log">Log File</a></p><p class='error'>This step had 90 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 3</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.1.3.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -142.356843264042</p>
+<p class='result'>Convergence Ratio = 0.146575167988317</p>
+<p class='result'>Baum welch starting for 1 Gaussian(s), iteration: 4 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.1.4-1.bw.log">Log File</a></p><p class='error'>This step had 100 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 4</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.1.4.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -142.304949037112</p>
+<p class='result'>Split Gaussians, increase by 1</p>
+<p class='result'>inc_comp <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.split_gaussians.1.1.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -142.304949037112</p>
+<p class='result'>Convergence Ratio = 0.05189422692996</p>
+<p class='result'>Baum welch starting for 2 Gaussian(s), iteration: 1 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.2.1-1.bw.log">Log File</a></p><p class='error'>This step had 100 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 1</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.2.1.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -142.469554700918</p>
+<p class='result'>Baum welch starting for 2 Gaussian(s), iteration: 2 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.2.2-1.bw.log">Log File</a></p><p class='error'>This step had 100 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 2</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.2.2.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -141.984715384556</p>
+<p class='result'>Convergence Ratio = 0.484839316362439</p>
+<p class='result'>Baum welch starting for 2 Gaussian(s), iteration: 3 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.2.3-1.bw.log">Log File</a></p><p class='error'>This step had 68 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 3</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.2.3.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -141.525520956427</p>
+<p class='result'>Convergence Ratio = 0.459194428129308</p>
+<p class='result'>Baum welch starting for 2 Gaussian(s), iteration: 4 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.2.4-1.bw.log">Log File</a></p><p class='error'>This step had 58 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 4</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.2.4.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -141.252447444999</p>
+<p class='result'>Convergence Ratio = 0.273073511427611</p>
+<p class='result'>Baum welch starting for 2 Gaussian(s), iteration: 5 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.2.5-1.bw.log">Log File</a></p><p class='error'>This step had 56 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 5</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.2.5.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -141.108671091728</p>
+<p class='result'>Convergence Ratio = 0.143776353270994</p>
+<p class='result'>Baum welch starting for 2 Gaussian(s), iteration: 6 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.2.6-1.bw.log">Log File</a></p><p class='error'>This step had 52 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 6</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.2.6.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -141.016053761781</p>
+<p class='result'>Split Gaussians, increase by 2</p>
+<p class='result'>inc_comp <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.split_gaussians.2.2.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -141.016053761781</p>
+<p class='result'>Convergence Ratio = 0.0926173299468758</p>
+<p class='result'>Baum welch starting for 4 Gaussian(s), iteration: 1 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.4.1-1.bw.log">Log File</a></p><p class='error'>This step had 50 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 1</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.4.1.norm.log">Log File</a></p><p class='error'>This step had 15 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -141.138724910736</p>
+<p class='result'>Baum welch starting for 4 Gaussian(s), iteration: 2 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.4.2-1.bw.log">Log File</a></p><p class='error'>This step had 48 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 2</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.4.2.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -140.722384538639</p>
+<p class='result'>Convergence Ratio = 0.416340372097039</p>
+<p class='result'>Baum welch starting for 4 Gaussian(s), iteration: 3 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.4.3-1.bw.log">Log File</a></p><p class='error'>This step had 36 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 3</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.4.3.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -140.397027215674</p>
+<p class='result'>Convergence Ratio = 0.32535732296455</p>
+<p class='result'>Baum welch starting for 4 Gaussian(s), iteration: 4 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.4.4-1.bw.log">Log File</a></p><p class='error'>This step had 30 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 4</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.4.4.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -140.158462459104</p>
+<p class='result'>Convergence Ratio = 0.23856475657044</p>
+<p class='result'>Baum welch starting for 4 Gaussian(s), iteration: 5 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.4.5-1.bw.log">Log File</a></p><p class='error'>This step had 28 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 5</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.4.5.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -140.02531850598</p>
+<p class='result'>Convergence Ratio = 0.133143953124005</p>
+<p class='result'>Baum welch starting for 4 Gaussian(s), iteration: 6 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.4.6-1.bw.log">Log File</a></p><p class='error'>This step had 30 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 6</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.4.6.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -139.94609740172</p>
+<p class='result'>Split Gaussians, increase by 4</p>
+<p class='result'>inc_comp <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.split_gaussians.4.4.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -139.94609740172</p>
+<p class='result'>Convergence Ratio = 0.0792211042600002</p>
+<p class='result'>Baum welch starting for 8 Gaussian(s), iteration: 1 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.8.1-1.bw.log">Log File</a></p><p class='error'>This step had 30 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 1</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.8.1.norm.log">Log File</a></p><p class='error'>This step had 60 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -140.0916797726</p>
+<p class='result'>Baum welch starting for 8 Gaussian(s), iteration: 2 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.8.2-1.bw.log">Log File</a></p><p class='error'>This step had 28 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 2</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.8.2.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -139.734251668299</p>
+<p class='result'>Convergence Ratio = 0.357428104300567</p>
+<p class='result'>Baum welch starting for 8 Gaussian(s), iteration: 3 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.8.3-1.bw.log">Log File</a></p><p class='error'>This step had 24 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 3</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.8.3.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -139.505745175572</p>
+<p class='result'>Convergence Ratio = 0.228506492727206</p>
+<p class='result'>Baum welch starting for 8 Gaussian(s), iteration: 4 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.8.4-1.bw.log">Log File</a></p><p class='error'>This step had 24 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 4</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.8.4.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -139.319921101218</p>
+<p class='result'>Convergence Ratio = 0.185824074354429</p>
+<p class='result'>Baum welch starting for 8 Gaussian(s), iteration: 5 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.8.5-1.bw.log">Log File</a></p><p class='error'>This step had 22 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 5</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.8.5.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -139.203221710531</p>
+<p class='result'>Convergence Ratio = 0.116699390686563</p>
+<p class='result'>Baum welch starting for 8 Gaussian(s), iteration: 6 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.8.6-1.bw.log">Log File</a></p><p class='error'>This step had 22 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 6</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.8.6.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -139.131467430838</p>
+<p class='result'>Split Gaussians, increase by 8</p>
+<p class='result'>inc_comp <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.split_gaussians.8.8.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -139.131467430838</p>
+<p class='result'>Convergence Ratio = 0.0717542796934083</p>
+<p class='result'>Baum welch starting for 16 Gaussian(s), iteration: 1 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.16.1-1.bw.log">Log File</a></p><p class='error'>This step had 22 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 1</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.16.1.norm.log">Log File</a></p><p class='error'>This step had 240 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -139.282094791367</p>
+<p class='result'>Baum welch starting for 16 Gaussian(s), iteration: 2 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.16.2-1.bw.log">Log File</a></p><p class='error'>This step had 22 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 2</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.16.2.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -138.935862190365</p>
+<p class='result'>Convergence Ratio = 0.346232601002498</p>
+<p class='result'>Baum welch starting for 16 Gaussian(s), iteration: 3 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.16.3-1.bw.log">Log File</a></p><p class='error'>This step had 20 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 3</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.16.3.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -138.754027080684</p>
+<p class='result'>Convergence Ratio = 0.181835109680691</p>
+<p class='result'>Baum welch starting for 16 Gaussian(s), iteration: 4 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.16.4-1.bw.log">Log File</a></p><p class='error'>This step had 20 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 4</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.16.4.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -138.60510588572</p>
+<p class='result'>Convergence Ratio = 0.148921194964089</p>
+<p class='result'>Baum welch starting for 16 Gaussian(s), iteration: 5 (1 of 1)</p>
+<p class='result'>bw <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.16.5-1.bw.log">Log File</a></p><p class='error'>This step had 20 ERROR messages and 0 WARNING messages.  Please check the log file for details.</p>
+<span class='status completed'>completed</span>
+<p class='result'>Normalization for iteration: 5</p>
+<p class='result'>norm <a href="file:///home/ai/voxforge/de/work/logs/50.cd_hmm_tied/voxforge.16.5.norm.log">Log File</a></p><span class='status completed'>completed</span>
+<p class='result'>Current Overall Likelihood Per Frame = -138.505690269962</p>
+<p>Training for 16 Gaussian(s) completed after 5 iterations</p>
+<hr>
+<h3>MODULE: 60 Lattice Generation	(2014-02-16 08:52)</h3>
+<p>Skipped:  $ST::CFG_MMIE set to 'no' in sphinx_train.cfg</p>
+<hr>
+<h3>MODULE: 61 Lattice Pruning	(2014-02-16 08:52)</h3>
+<p>Skipped:  $ST::CFG_MMIE set to 'no' in sphinx_train.cfg</p>
+<hr>
+<h3>MODULE: 62 Lattice Format Conversion	(2014-02-16 08:52)</h3>
+<p>Skipped:  $ST::CFG_MMIE set to 'no' in sphinx_train.cfg</p>
+<hr>
+<h3>MODULE: 65 MMIE Training	(2014-02-16 08:52)</h3>
+<p>Skipped:  $ST::CFG_MMIE set to 'no' in sphinx_train.cfg</p>
+<hr>
+<h3>MODULE: 90 deleted interpolation	(2014-02-16 08:52)</h3>
+<p>Skipped for continuous models</p>
+<hr>
+<h3>MODULE: DECODE Decoding using models previously trained	(2014-02-16 08:52)</h3>
+<p class='result'>Decoding 2888 segments starting at 0 (part 1 of 1) </p>
+<p class='result'>pocketsphinx_batch <a href="file:///home/ai/voxforge/de/work/logs/decode/voxforge-1-1.log">Log File</a></p><span class='status completed'>completed</span>
+<p>        Aligning results to find error rate</p>
+<p class='result'>SENTENCE ERROR: 7.9% (227/2888)   WORD ERROR RATE: 2.0% (366/17891)</p>
+<p class='result'>

@@ -1,0 +1,1 @@
+sudo apt-get install autoconf automake autogen make libtool bison python-dev swig libpulse-dev espeak gawk curl bc nmap libusb-dev g++ jq psmisc git python-websocket python-setuptools wakeonlan mousetweaks onboard libx11-dev libxtst-dev ansiweather

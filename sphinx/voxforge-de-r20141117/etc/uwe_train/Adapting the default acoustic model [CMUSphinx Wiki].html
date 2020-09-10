@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html dir="ltr" class="js desktop" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Adapting the default acoustic model [CMUSphinx Wiki]</title>
+    <script src="Adapting%20the%20default%20acoustic%20model%20%5BCMUSphinx%20Wiki%5D-Dateien/ga.js" async="" type="text/javascript"></script><script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki">
+<meta name="robots" content="index,follow">
+<meta name="keywords" content="tutorialadapt">
+<link rel="search" type="application/opensearchdescription+xml" href="http://cmusphinx.sourceforge.net/wiki/lib/exe/opensearch.php" title="CMUSphinx Wiki">
+<link rel="start" href="http://cmusphinx.sourceforge.net/wiki/">
+<link rel="contents" href="http://cmusphinx.sourceforge.net/wiki/tutorialadapt?do=index" title="Sitemap">
+<link rel="alternate" type="application/rss+xml" title="Recent changes" href="http://cmusphinx.sourceforge.net/wiki/feed.php">
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://cmusphinx.sourceforge.net/wiki/feed.php?mode=list&amp;ns=">
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://cmusphinx.sourceforge.net/wiki/_export/xhtml/tutorialadapt">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://cmusphinx.sourceforge.net/wiki/_export/raw/tutorialadapt">
+<link rel="canonical" href="http://cmusphinx.sourceforge.net/wiki/tutorialadapt">
+<link rel="stylesheet" type="text/css" href="Adapting%20the%20default%20acoustic%20model%20%5BCMUSphinx%20Wiki%5D-Dateien/css.css">
+<script type="text/javascript">/*<![CDATA[*/var NS='';var JSINFO = {"id":"tutorialadapt","namespace":""};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="Adapting%20the%20default%20acoustic%20model%20%5BCMUSphinx%20Wiki%5D-Dateien/js.php"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="http://cmusphinx.sourceforge.net/wiki/lib/tpl/cmusphinx/images/favicon.ico">
+<link rel="apple-touch-icon" href="http://cmusphinx.sourceforge.net/wiki/lib/tpl/cmusphinx/images/apple-touch-icon.png">
+    
+<script type="text/javascript">
+   var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-11921517-1']);
+  _gaq.push(['_trackPageview']);
+   
+  (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_cmusphinx     ">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1>
+            <span><a href="http://cmusphinx.sourceforge.net/">CMUSphinx</a></span>
+        </h1>
+            </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http://cmusphinx.sourceforge.net/wiki/tutorialadapt?do=login&amp;sectok=676e86daff42b2c52ae04d0e5019810b" class="action login" rel="nofollow" title="Login">Login</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+        <div id="dokuwiki__sitetools">
+            <h3 class="a11y">Site Tools</h3>
+            <form action="/wiki/start" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input name="do" value="search" type="hidden"><input id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" type="text"><input value="Search" class="button" title="Search" type="submit"><div id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form>            <div class="mobileTools">
+                <form action="/wiki/doku.php" method="get" accept-charset="utf-8"><div class="no"><input name="id" value="tutorialadapt" type="hidden"><select name="do" class="edit quickselect" title="Tools"><option selected="selected" value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent changes</option><option value="media">Media Manager</option><option value="index">Sitemap</option></optgroup><optgroup label="User Tools"><option value="login">Login</option></optgroup></select><input style="display: none;" value="&gt;" type="submit"></div></form>            </div>
+            <ul>
+                <li><a href="http://cmusphinx.sourceforge.net/wiki/tutorialadapt?do=recent" class="action recent" accesskey="r" rel="nofollow" title="Recent changes [R]">Recent changes</a></li><li><a href="http://cmusphinx.sourceforge.net/wiki/tutorialadapt?do=media&amp;ns=" class="action media" rel="nofollow" title="Media Manager">Media Manager</a></li><li><a href="http://cmusphinx.sourceforge.net/wiki/tutorialadapt?do=index" class="action index" accesskey="x" rel="nofollow" title="Sitemap [X]">Sitemap</a></li>            </ul>
+        </div>
+
+    </div>
+
+    <div class="nav-menu">
+	<ul>
+		<li class="page-item"><a href="http://cmusphinx.sourceforge.net/wiki/download">Download</a></li>
+		<li class="page-item"><a href="http://cmusphinx.sourceforge.net/wiki/tutorial">Tutorial</a></li>
+		<li class="page-item"><a href="http://cmusphinx.sourceforge.net/wiki">Wiki</a></li>
+		<li class="page-item"><a href="http://cmusphinx.sourceforge.net/wiki/develop">Develop</a></li>
+		<li class="page-item"><a href="http://cmusphinx.sourceforge.net/wiki/research">Research</a></li>
+		<li class="page-item"><a href="http://cmusphinx.sourceforge.net/wiki/about">About</a></li>
+        </ul>
+    </div>
+
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                                        <div class="trace"><span class="bchead">Trace:</span> <span class="bcsep">•</span> <span class="curid"><bdi><a href="http://cmusphinx.sourceforge.net/wiki/tutorialadapt" class="breadcrumbs" title="tutorialadapt">Adapting the default acoustic model</a></bdi></span></div>
+                    </div>
+    
+    
+    <hr class="a11y">
+</div></div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <div class="pageId"><span>tutorialadapt</span></div>
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc">
+<h3 style="cursor: pointer;" class="toggle open"><strong><span>−</span></strong>Table of Contents</h3>
+<div style="">
+
+<ul style="" aria-expanded="true" class="toc">
+<li class="level1"><div class="li"><a href="#adapting_the_default_acoustic_model">Adapting the default acoustic model</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#creating_an_adaptation_corpus">Creating an adaptation corpus</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#required_files">Required files</a></div></li>
+<li class="level3"><div class="li"><a href="#recording_your_adaptation_data">Recording your adaptation data</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#adapting_the_acoustic_model">Adapting the acoustic model</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#generating_acoustic_feature_files">Generating acoustic feature files</a></div></li>
+<li class="level3"><div class="li"><a href="#converting_the_sendump_and_mdef_files">Converting the sendump and mdef files</a></div></li>
+<li class="level3"><div class="li"><a href="#accumulating_observation_counts">Accumulating observation counts</a></div></li>
+<li class="level3"><div class="li"><a href="#creating_transformation_with_mllr">Creating transformation with MLLR</a></div></li>
+<li class="level3"><div class="li"><a href="#updating_the_acoustic_model_files_with_map">Updating the acoustic model files with MAP</a></div></li>
+<li class="level3"><div class="li"><a href="#recreating_the_adapted_sendump_file">Recreating the adapted sendump file</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#other_acoustic_models">Other acoustic models</a></div></li>
+<li class="level2"><div class="li"><a href="#testing_the_adaptation">Testing the adaptation</a></div></li>
+<li class="level2"><div class="li"><a href="#using_the_model">Using the model</a></div></li>
+<li class="level2"><div class="li"><a href="#adaptation_didn_t_improve_results_troubleshooting">Adaptation didn't improve results. Troubleshooting</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#i_have_no_idea_where_to_start_looking_for_the_problem">I have no idea where to start looking for the problem</a></div></li>
+<li class="level3"><div class="li"><a href="#or_how_much_improvement_i_might_expect_through_adaptation">or how much improvement I might expect through adaptation</a></div></li>
+<li class="level3"><div class="li"><a href="#i_m_lost">I'm lost</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#what_next">What next</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<p>
+<strong>This tutorial describes version 5prealpha. It will not work in older version. Please update.</strong>
+</p>
+
+<h1 class="sectionedit1" id="adapting_the_default_acoustic_model">Adapting the default acoustic model</h1>
+<div class="level1">
+
+<p>
+This page describes how to do some simple acoustic model adaptation to 
+improve speech recognition in your configuration. Please note that the 
+adaptation doesn't necessary adapt for a particular speaker. It just 
+improves the fit between the adapatation data and the model. For example
+ you can adapt to your own voice to make dictation good, but you also 
+can adapt to your particular recording environment, your audio 
+transmission channel, your accent or accent of your users. You can use 
+model trained with clean broadcast data and telephone data to produce 
+telephone acoustic model by doing adaptation. Cross-language adaptation 
+also make sense, for example you can adapt English model to sounds of 
+other language by creating a phoneset map and creating other language 
+dictionary with English phoneset.
+</p>
+
+<p>
+The adaptation process takes transcribed data and improves the model you
+ already have. It's more robust than training and could lead to a good 
+results even if your adaptation data is small. For example, it's enough 
+to have 5 minutes of speech to significantly improve the dictation 
+accuracy by adaptation to the particular speaker.
+</p>
+
+<p>
+The methods of adaptation are a bit different between PocketSphinx and 
+Sphinx4 due to the different types of acoustic models used. For more 
+technical information on that see <a href="http://cmusphinx.sourceforge.net/wiki/acousticmodeltypes" class="wikilink1" title="acousticmodeltypes">Acoustic Model Types</a>.
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="creating_an_adaptation_corpus">Creating an adaptation corpus</h2>
+<div class="level2">
+
+<p>
+The first thing you need to do is create a corpus of adaptation data.  
+This will consist of a list of sentences, a dictionary describing the 
+pronunciation of all the words in that list of sentences, and a 
+recording of you speaking each of those sentences.
+</p>
+
+</div>
+
+<h3 class="sectionedit3" id="required_files">Required files</h3>
+<div class="level3">
+
+<p>
+The actual set of sentences you use is somewhat arbitrary, but ideally 
+it should have good coverage of the most frequently used words or 
+phonemes in the set of sentences or the type of text you want to 
+recognize. For example, if you want to recognize isolated commands, you 
+need tor record them. If you want to recognize dictation, you need to 
+record full sentences. For simple voice adaptation we have had good 
+results simply using sentences from the <a href="http://festvox.org/cmu_arctic/" class="urlextern" title="http://festvox.org/cmu_arctic/" rel="nofollow">CMU ARCTIC</a>
+ text-to-speech databases.  To that effect, here are the first 20 
+sentences from ARCTIC, a fileids file, and a transcription file
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://cmusphinx.sourceforge.net/data/arctic20.fileids" class="urlextern" title="http://cmusphinx.sourceforge.net/data/arctic20.fileids" rel="nofollow">arctic20.fileids</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://cmusphinx.sourceforge.net/data/arctic20.transcription" class="urlextern" title="http://cmusphinx.sourceforge.net/data/arctic20.transcription" rel="nofollow">arctic20.transcription</a></div>
+</li>
+</ul>
+
+<p>
+The sections below will refer to these files, so it would be a good idea
+ to download them now.  You should also make sure that you have 
+downloaded and compiled sphinxbase and sphinxtrain.
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="recording_your_adaptation_data">Recording your adaptation data</h3>
+<div class="level3">
+
+<p>
+In case you are adapting to a single speaker you can record the 
+adaptation data yourself. This is unfortunately a bit more complicated 
+than it ought to be.  Basically, you need to record a single audio file 
+for each sentence in the adaptation corpus, naming the files according 
+to the names listed in <code>arctic20.transcription</code> and <code>arctic20.fileids</code>.  In addition, you will <strong>NEED
+ TO MAKE SURE THAT YOU RECORD AT A SAMPLING RATE OF 16 KHZ (or 8 kHz if 
+you adapt a telephone model) IN MONO WITH SINGLE CHANNEL.</strong>
+</p>
+
+<p>
+The simplest way would be to start sound recorder like Audacity or 
+Wavesurfer and read all sentences in a big audio file. Then you can cut 
+audio files on sentences in a text editor and make sure every sentence 
+is saved in the corresponding file. The file structure should look like 
+this:
+</p>
+<pre class="code">arctic_0001.wav  
+arctic_0002.wav
+.....
+arctic_0019.wav
+arctic20.fileids
+arctic20.transcription</pre>
+
+<p>
+You should verify that these recordings sound okay.  To do this, you can play them back with:
+</p>
+<pre class="code">for i in *.wav; do play $i; done</pre>
+
+<p>
+If you already have recording of the speaker, you can split it on sentences and create fileids and transcription files.
+</p>
+
+<p>
+If you are adapting to a channel, accent or some other generic property 
+of the audio, then you need to collect a little bit more recordings 
+manually. For example, in call center you can record and transcribe 
+hundred calls and use them to improve the recognizer accuracy by means 
+of adaptation.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="adapting_the_acoustic_model">Adapting the acoustic model</h2>
+<div class="level2">
+
+<p>
+First we will copy the default acoustic model from PocketSphinx into the
+ current directory in order to work on it. Assuming that you installed 
+PocketSphinx under <code>/usr/local</code>, the acoustic model directory is <code>/usr/local/share/pocketsphinx/model/en-us/en-us</code>.  Copy this directory to your working directory:
+</p>
+<pre class="code">cp -a /usr/local/share/pocketsphinx/model/en-us/en-us .</pre>
+
+<p>
+Lets also copy the dictionary and the lm for the testing
+</p>
+<pre class="code">cp -a /usr/local/share/pocketsphinx/model/en-us/cmudict-en-us.dict .
+cp -a /usr/local/share/pocketsphinx/model/en-us/en-us.lm.dmp .</pre>
+
+</div>
+
+<h3 class="sectionedit6" id="generating_acoustic_feature_files">Generating acoustic feature files</h3>
+<div class="level3">
+
+<p>
+In order to run the adaptation tools, you must generate a set of 
+acoustic model feature files from these WAV audio recordings.  This can 
+be done with the <code>sphinx_fe</code> tool from SphinxBase.  It is 
+imperative that you make sure you are using the same acoustic parameters
+ to extract these features as were used to train the standard acoustic 
+model.  Since PocketSphinx 0.4, these are stored in a file called <code>feat.params</code> in the acoustic model directory.  You can simply add it to the command line for <code>sphinx_fe</code>, like this:
+</p>
+<pre class="code">sphinx_fe -argfile en-us/feat.params \
+        -samprate 16000 -c arctic20.fileids \
+       -di . -do . -ei wav -eo mfc -mswav yes</pre>
+
+<p>
+You should now have the following files in your working directory:
+</p>
+<pre class="code">en-us
+arctic_0001.mfc
+arctic_0001.wav
+arctic_0002.mfc
+arctic_0002.wav
+arctic_0003.mfc
+arctic_0003.wav
+.....
+arctic_0020.wav
+arctic20.fileids
+arctic20.transcription
+cmudict-en-us.dict
+en-us.lm.dmp</pre>
+
+</div>
+
+<h3 class="sectionedit7" id="converting_the_sendump_and_mdef_files">Converting the sendump and mdef files</h3>
+<div class="level3">
+
+<p>
+Some models like en-us are distributed in compressed version. Extra 
+files required for adaptation are excluded to save space. For en-us 
+model from pocketsphinx you can download the full version suitable for 
+adaptation from the downloads:
+</p>
+
+<p>
+<a href="http://sourceforge.net/projects/cmusphinx/files/Acoustic%20and%20Language%20Models/US%20English%20Generic%20Acoustic%20Model/cmusphinx-en-us-ptm-5.2.tar.gz/download" class="urlextern" title="http://sourceforge.net/projects/cmusphinx/files/Acoustic%20and%20Language%20Models/US%20English%20Generic%20Acoustic%20Model/cmusphinx-en-us-ptm-5.2.tar.gz/download" rel="nofollow"> cmusphinx-en-us-ptm-5.2.tar.gz </a>
+</p>
+
+<p>
+Make sure you are using the full model with the mixture_weights file present.
+</p>
+
+<p>
+If mdef file inside the model is converted to binary, you will also need to convert the <code>mdef</code> file from the acoustic model to the plain text format used by the SphinxTrain tools.  To do this, use the <code>pocketsphinx_mdef_convert</code> program:
+</p>
+<pre class="code">pocketsphinx_mdef_convert -text en-us/mdef en-us/mdef.txt</pre>
+
+<p>
+In downloads the mdef is already in the text form.
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="accumulating_observation_counts">Accumulating observation counts</h3>
+<div class="level3">
+
+<p>
+The next step in adaptation is to collect statistics from the adaptation data.  This is done using the <code>bw</code> program from SphinxTrain.  You should be able to find <code>bw</code> tool in a sphinxtrain installation in a folder <code>/usr/local/libexec/sphinxtrain</code> (or under other prefix on Linux) or in <code>bin\Release</code> (in sphinxtrain directory on Windows).  Copy it to the working directory along with the <code>map_adapt</code> and <code>mk_s2sendump</code> programs. 
+</p>
+
+<p>
+Now, to collect statistics, run:
+</p>
+<pre class="code">./bw \
+ -hmmdir en-us \
+ -moddeffn en-us/mdef.txt \
+ -ts2cbfn .ptm. \
+ -feat 1s_c_d_dd \
+ -svspec 0-12/13-25/26-38 \
+ -cmn current \
+ -agc none \
+ -dictfn cmudict-en-us.dict \
+ -ctlfn arctic20.fileids \
+ -lsnfn arctic20.transcription \
+ -accumdir .
+</pre>
+
+<p>
+Make sure the arguments in <code>bw</code> command should match the parameters in <code>feat.params</code> file inside the acoustic model folder. Please note that not all the parameters from <code>feat.param</code> are supported by <code>bw</code>, only a few of them. <code>bw</code> for example doesn't suppport <code>upperf</code> or other feature extraction params. You only need to use parameters which are accepted, other parameters from <code>feat.params</code> should be skipped. 
+</p>
+
+<p>
+For example, for continuous model you don't need to include the <code>svspec</code> option. Instead, you need to use just <code>-ts2cbfn .cont.</code> For semi-continuous models use <code>-ts2cbfn .semi.</code> If model has `feature_transform` file like en-us continuous model, you need to add <code>-lda feature_transform</code> argument to bw, otherwise it will not work properly.
+</p>
+
+<p>
+Sometimes if you miss the file <code>noisedict</code> you also need an extra step, copy the <code>fillerdict</code> file into the directory that you choose in the <code>hmmdir</code> parameter, renaming it to <code>noisedict</code>.
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="creating_transformation_with_mllr">Creating transformation with MLLR</h3>
+<div class="level3">
+
+<p>
+MLLR transforms are supported by pocketsphinx and sphinx4. MLLR is a 
+cheap adaptation method that is suitable when amount of data is limited.
+ It's a good idea to use MLLR for online adaptation. MLLR works best for
+ continuous model. It's effect for semi-continuous models is very 
+limited since semi-continuous models mostly relies on mixture weights. 
+If you want best accuracy you can combine MLLR adaptation with MAP 
+adaptation below
+</p>
+
+<p>
+Next we will generate an MLLR transformation which we will pass to the 
+decoder to adapt the acoustic model at run-time. This is done with the 
+mllr_solve program:
+</p>
+<pre class="code">./mllr_solve \
+    -meanfn en-us/means \
+    -varfn en-us/variances \
+    -outmllrfn mllr_matrix -accumdir .</pre>
+
+<p>
+This command will create an adaptation data file called <code>mllr_matrix</code>. Now, if you wish to decode with the adapted model, simply add <code>-mllr mllr_matrix</code> (or whatever the path to the mllr_matrix file you created is) to your pocketsphinx command line.
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="updating_the_acoustic_model_files_with_map">Updating the acoustic model files with MAP</h3>
+<div class="level3">
+
+<p>
+MAP is different adaptation method. In this case unlike for MLLR we 
+don't create a generic transform but update each parameter in the model.
+ We will now copy the acoustic model directory and overwrite the newly 
+created directory with adapted model files:
+</p>
+<pre class="code">cp -a en-us en-us-adapt</pre>
+
+<p>
+To do adaptation, use the <code>map_adapt</code> program:
+</p>
+<pre class="code">./map_adapt \
+    -moddeffn en-us/mdef.txt \
+    -ts2cbfn .ptm. \
+    -meanfn en-us/means \
+    -varfn en-us/variances \
+    -mixwfn en-us/mixture_weights \
+    -tmatfn en-us/transition_matrices \
+    -accumdir . \
+    -mapmeanfn en-us-adapt/means \
+    -mapvarfn en-us-adapt/variances \
+    -mapmixwfn en-us-adapt/mixture_weights \
+    -maptmatfn en-us-adapt/transition_matrices</pre>
+
+</div>
+
+<h3 class="sectionedit11" id="recreating_the_adapted_sendump_file">Recreating the adapted sendump file</h3>
+<div class="level3">
+
+<p>
+If you want to save space for the model you can use sendump file 
+supported by pocketsphinx. For sphinx4 you don't need that. To recreate 
+the <code>sendump</code> file from the updated <code>mixture_weights</code> file:
+</p>
+<pre class="code">./mk_s2sendump \
+    -pocketsphinx yes \
+    -moddeffn en-us-adapt/mdef.txt \
+    -mixwfn en-us-adapt/mixture_weights \
+    -sendumpfn en-us-adapt/sendump</pre>
+
+<p>
+Congratulations!  You now have an adapted acoustic model!  You can delete the files <code>en-us-adapt/mixture_weights</code> and <code>en-us-adapt/mdef.txt</code> to save space if you like, because they are not used by the decoder.
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="other_acoustic_models">Other acoustic models</h2>
+<div class="level2">
+
+<p>
+For Sphinx4, the adaptation is the same as for PocketSphinx, except that
+ sphinx4 can not read binary compressed mdef and sendump files, you need
+ to leave mdef and mixture weights.
+</p>
+
+</div>
+
+<h2 class="sectionedit13" id="testing_the_adaptation">Testing the adaptation</h2>
+<div class="level2">
+
+<p>
+After you have done the adaptation, it's critical to test the adaptation
+ quality. To do that you need to setup the database similar to the one 
+used for adaptation. To test the adaptation you need to configure the 
+decoding with the required paramters, in particular, you need to have a 
+language model <code>&lt;your.lm&gt;</code>. For more details see  <a href="http://cmusphinx.sourceforge.net/wiki/tutoriallm" class="wikilink1" title="tutoriallm">Building Language Model</a>
+</p>
+
+<p>
+Create fileids file adaptation-test.fileids:
+</p>
+<pre class="code">test1
+test2</pre>
+
+<p>
+Create transcription file adaptation-test.transcription:
+</p>
+<pre class="code">some text (test1)
+some text (test2)</pre>
+
+<p>
+Put the audio files in <code>wav</code> folder. Make sure those files have proper format and sample rate.
+</p>
+<pre class="code">wav/test1.wav
+wav/test2.wav</pre>
+
+<p>
+You can also use adaptation data for testing, but it's recommended to create a separate test set. Now, let's run the decoder:
+</p>
+<pre class="code">pocketsphinx_batch \
+ -adcin yes \
+ -cepdir wav \
+ -cepext .wav \
+ -ctl adaptation-test.fileids \
+ -lm &lt;your.lm, for example en-us.lm.dmp from pocketsphinx&gt; \
+ -dict &lt;your.dic, for example cmudict-en-us.dict from pocketsphinx&gt; \
+ -hmm &lt;your_new_adapted_model, for example en-us-adapt&gt; \
+ -hyp adapation-test.hyp
+
+word_align.pl adaptation-test.transcription adapation-test.hyp
+</pre>
+
+<p>
+Make sure to add 
+</p>
+<pre class="code"> -samprate 8000 </pre>
+
+<p>
+ to the above command if you are decoding 8kHz files!
+</p>
+
+<p>
+The script <code>word-align.pl</code> from Sphinxtrain will report you 
+the exact error rate which you can use to decide if adaptation worked 
+for you. It will look something like:
+</p>
+<pre class="code">TOTAL Words: 773 Correct: 669 Errors: 121
+TOTAL Percent correct = 86.55% Error = 15.65% Accuracy = 84.35%
+TOTAL Insertions: 17 Deletions: 11 Substitutions: 93</pre>
+
+<p>
+You can try to run decoder on the original acoustic model and on new acoustic model to estimate the improvement.
+</p>
+
+</div>
+
+<h2 class="sectionedit14" id="using_the_model">Using the model</h2>
+<div class="level2">
+
+<p>
+After adaptation, the acoustic model is located in  the folder
+</p>
+<pre class="code">en-us-adapt</pre>
+
+<p>
+You need only that folder. The model should have the following files:
+</p>
+<pre class="code">mdef
+feat.params
+mixture_weights
+means
+noisedict
+transition_matrices
+variances</pre>
+
+<p>
+Depending on the type of the model you trained. 
+</p>
+
+<p>
+To use the model in pocketsphinx, simply put the model files to the resources of your application. Then point to it with the <code>-hmm</code> option:
+</p>
+<pre class="code">pocketsphinx_continuous -hmm &lt;your_new_model_folder&gt; -lm &lt;your_lm&gt; -dict &lt;your_dict&gt; -infile test.wav</pre>
+
+<p>
+Or with <code>-hmm</code> engine configuration option through <code>cmd_ln_init</code> function. Alternatively you can replace the old model files with the new ones.
+</p>
+
+<p>
+To use the trained model in sphinx4, you need to update the model location in the code.
+</p>
+
+</div>
+
+<h2 class="sectionedit15" id="adaptation_didn_t_improve_results_troubleshooting">Adaptation didn't improve results. Troubleshooting</h2>
+<div class="level2">
+
+<p>
+Now test your accuracy to see it's good.
+</p>
+
+</div>
+
+<h3 class="sectionedit16" id="i_have_no_idea_where_to_start_looking_for_the_problem">I have no idea where to start looking for the problem</h3>
+<div class="level3">
+<ol>
+<li class="level1"><div class="li"> test accuracy on adaptation set if it improves </div>
+</li>
+<li class="level1"><div class="li"> accuracy improves on adaptation set → check if your adaptation set match with your test set</div>
+</li>
+<li class="level1"><div class="li"> accuracy didn't improve on adaptation set → you made mistake during adaptation</div>
+</li>
+</ol>
+
+</div>
+
+<h3 class="sectionedit17" id="or_how_much_improvement_i_might_expect_through_adaptation">or how much improvement I might expect through adaptation</h3>
+<div class="level3">
+
+<p>
+From few sentences you should get about 10% relative WER improvement.
+</p>
+
+</div>
+
+<h3 class="sectionedit18" id="i_m_lost">I'm lost</h3>
+<div class="level3">
+
+<p>
+whether it's needing more/better training data, whether I'm not doing 
+the adaptation correctly, whether my language model is the problem here,
+ or whether there is something intrinsically wrong with my configuration
+</p>
+
+<p>
+Most likely you just ignored error messages that were printed to you. 
+You obviosly need to provide more information and give access to your 
+experiment files in order to get more definite advise.
+</p>
+
+</div>
+
+<h2 class="sectionedit19" id="what_next">What next</h2>
+<div class="level2">
+
+<p>
+We hope adapted model give you acceptable results. If not, try to improve your adaptation process:
+</p>
+<ol>
+<li class="level1"><div class="li"> Add more adaptation data</div>
+</li>
+<li class="level1"><div class="li"> Adapt your language model / use better language model</div>
+</li>
+</ol>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <div class="docInfo"><bdi>tutorialadapt.txt</bdi> · Last modified: 2015/03/22 15:21 by <bdi>admin</bdi></div>
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y">
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http://cmusphinx.sourceforge.net/wiki/tutorialadapt?do=edit" class="action source" accesskey="v" rel="nofollow" title="Show pagesource [V]"><span>Show pagesource</span></a></li><li><a href="http://cmusphinx.sourceforge.net/wiki/tutorialadapt?do=revisions" class="action revs" accesskey="o" rel="nofollow" title="Old revisions [O]"><span>Old revisions</span></a></li><li><a href="http://cmusphinx.sourceforge.net/wiki/tutorialadapt?do=backlink" class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="#dokuwiki__top" class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer">
+<div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license" class="urlextern">CC Attribution-Noncommercial-Share Alike 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" rel="license"><img src="Adapting%20the%20default%20acoustic%20model%20%5BCMUSphinx%20Wiki%5D-Dateien/cc-by-nc-sa.png" alt="CC Attribution-Noncommercial-Share Alike 3.0 Unported"></a>        <a href="http://www.dokuwiki.org/donate" title="Donate"><img src="Adapting%20the%20default%20acoustic%20model%20%5BCMUSphinx%20Wiki%5D-Dateien/button-donate.gif" alt="Donate" height="15" width="80"></a>
+        <a href="http://www.php.net/" title="Powered by PHP"><img src="Adapting%20the%20default%20acoustic%20model%20%5BCMUSphinx%20Wiki%5D-Dateien/button-php.gif" alt="Powered by PHP" height="15" width="80"></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5"><img src="Adapting%20the%20default%20acoustic%20model%20%5BCMUSphinx%20Wiki%5D-Dateien/button-html5.png" alt="Valid HTML5" height="15" width="80"></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS"><img src="Adapting%20the%20default%20acoustic%20model%20%5BCMUSphinx%20Wiki%5D-Dateien/button-css.png" alt="Valid CSS" height="15" width="80"></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki"><img src="Adapting%20the%20default%20acoustic%20model%20%5BCMUSphinx%20Wiki%5D-Dateien/button-dw.png" alt="Driven by DokuWiki" height="15" width="80"></a>
+    </div>
+</div>
+</div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="Adapting%20the%20default%20acoustic%20model%20%5BCMUSphinx%20Wiki%5D-Dateien/indexer.gif" alt="" height="1" width="2"></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+
+
+</body></html>
