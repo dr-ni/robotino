@@ -3,7 +3,7 @@
 
 ... a german speech robot
 
-# install deps package
+# install deps
 
   install packages:
   
