@@ -10,7 +10,7 @@
     ./deps.sh
 
 
-# Build
+# build
 
   build first time:
   
