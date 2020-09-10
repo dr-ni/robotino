@@ -25,7 +25,7 @@
   
     robotino/sphinx/run-pocketsphinx.sh
     
-# main parts
+# functional software components
 
 main and parser:
 
