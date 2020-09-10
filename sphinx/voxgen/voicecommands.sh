@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for voicecmdfile in "$(dirname $0)/voicecommands.conf" /usr/local/share/uwevoxgen/voicecommands.conf
+for voicecmdfile in "$(dirname $0)/voicecommands.conf" /usr/local/share/voxgen/voicecommands.conf
 do 
 if [ -f "$voicecomdfile" ] ; then
 	echo using $voicecomdfile
