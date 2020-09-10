@@ -1,6 +1,7 @@
 
 # robotino
 
+... a german speech robot
 
 # install deps package
 
