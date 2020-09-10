@@ -71,7 +71,7 @@
 #include "pocketsphinx.h"
 //UN added
 int listen=1;
-int gosleeptime=20;
+int gosleeptime=25;
 //end UN
 
 
