@@ -5,7 +5,7 @@
 
 # install deps
 
-  install packages:
+  install deb packages (apt):
   
     cd robotino
     ./deps.sh
