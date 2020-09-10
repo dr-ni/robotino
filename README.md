@@ -33,11 +33,11 @@ main and parser:
     - /home/pi/robotino/sphinx/voxgen/voicecommands.sh
     - /home/pi/robotino/sphinx/voxgen/voicecommands.conf
 
-wake word
+wake words
 
     robotino einschalten
     
-sleep word
+sleep words
 
     robotino ausschalten
   
