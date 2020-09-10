@@ -35,8 +35,8 @@ main and parser:
 
 wake word
 
-    -robotino ein
+    robotino ein
     
 sleep word
 
-    -robotino aus   
+    robotino aus   
