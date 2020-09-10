@@ -30,8 +30,8 @@
 main and parser:
 
     - robotino/sphinx/pocketsphinx-5prealpha/src/programs/continuous.c
-    - /home/pi/robotino/sphinx/voxgen/voicecommands.sh
-    - /home/pi/robotino/sphinx/voxgen/voicecommands.conf
+    - robotino/sphinx/voxgen/voicecommands.sh
+    - robotino/sphinx/voxgen/voicecommands.conf
 
 wake words
 
