@@ -6,7 +6,7 @@ fakemouse: fakemouse.o
 	$(CC) fakemouse.c $(CFLAGS) -o fakemouse
 
 ipa2arpabet: ipa2arpabet.c ipa2arpabet-de.c
-	$(CC) ipa2arpabet.c ipa2arpabet-de.c -o ipa2arpabet-de
+	$(CC) ipa2arpabet.c ipa2arpabet-de.c -o ipa2arpabet
 
 voxgen:
 	bash sepvoicecmd.sh voicecommands.conf
