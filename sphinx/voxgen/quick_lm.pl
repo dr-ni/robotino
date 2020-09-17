@@ -1,5 +1,66 @@
 #!/usr/local/bin/perl -w
 
+ # ====================================================================
+ # Copyright (c) 1996-2002 Alexander I. Rudnicky and Carnegie Mellon University.
+ # All rights reserved.
+ # 
+ # Redistribution and use in source and binary forms, with or without
+ # modification, are permitted provided that the following conditions
+ # are met:
+ # 
+ # 1. Redistributions of source code must retain the above copyright
+ #    notice, this list of conditions and the following disclaimer. 
+ # 
+ # 2. Redistributions in binary form must reproduce the above copyright
+ #    notice, this list of conditions and the following disclaimer in
+ #    the documentation and/or other materials provided with the
+ #    distribution.
+ # 
+ # 3. All copies, used or distributed, must preserve the original wording of
+ #    the copyright notice included in the output file.
+ # 
+ # This work was supported in part by funding from the Defense Advanced 
+ # Research Projects Agency and the CMU Sphinx Speech Consortium.
+ # 
+ # THIS SOFTWARE IS PROVIDED BY CARNEGIE MELLON UNIVERSITY ``AS IS'' AND 
+ # ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
+ # THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ # PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL CARNEGIE MELLON UNIVERSITY
+ # NOR ITS EMPLOYEES BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ # SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT 
+ # LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+ # DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY 
+ # THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT 
+ # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
+ # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ # 
+ # ====================================================================
+# 
+# 
+# 
+# Pretty Good Language Modeler, now with unigram vector augmentation!
+# 
+# The Pretty Good Language Modeler is intended for quick construction of small 
+# language models, typically as might be needed in application development. Depending
+# on the version of Perl that you are running, a practical limitation is a
+# maximum vocabulary size on the order of 1000-2000 words. The limiting factor
+# is the number of n-grams observed, since each n-gram is stored as a hash key.
+# (So smaller vocabularies may turn out to be a problem as well.)
+# 
+# This package computes a stadard back-off language model. It differs in one significant 
+# respect, which is the computation of the discount. We adopt a "proportional" (or ratio)
+# discount in which a certain percentage of probability mass is removed (typically 50%)
+# from observed n-grams and redistributed over unobserved n-grams.
+# 
+# Conventionally, an absolute discount would be used, however we have found that the 
+# proportional discount appears to be robust for extremely small languages, as might be 
+# prototyped by a developer, as opposed to based on a collected corpus. We have found that 
+# absolute and proportional discounts produce comparable recognition results with perhaps
+# a slight advantage for proportional discounting. A more systematic investigation of
+# this technique would be desirable. In any case it also has the virtue of using a very
+# simple computation.
+
+ # 
 
 # NOTE: this is by no means an efficient implementation and performance will 
 # deteriorate rapidly as a function of the corpus size. Larger corpora should be

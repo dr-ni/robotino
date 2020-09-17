@@ -16,7 +16,7 @@
  *
  * Straight-forward german translator from International Phonetic Alphabet (IPA) to CMU ARPAbet
  */
- 
+
 char * find_match(const char *buf, const char * buf_end, const char *pat, size_t len);
 int replace(const char *from, const char *to, const char *fname);
 
