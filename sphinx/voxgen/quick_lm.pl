@@ -80,6 +80,8 @@
 # [20011123] (air)
 # cleaned-up version for distribution
 
+# [20170902] (UN)
+# bugfix 
 use Getopt::Std;
 
 $VERBOSE = 1;
@@ -89,10 +91,11 @@ sub handler { local($sig) = @_;
 	      exit(0);
 	    }
 foreach (qw(XCPU KILL TERM STOP)) { $SIG{$_} = \&handler; }
-
+# UN added 
 $opt_s="";
 $opt_w="";
 $opt_d="";
+# UN 
 if ($#ARGV < 0) { die("usage: quick_lm -s <sentence_file> [-w <word_file>] [-d discount]\n"); }
 Getopt::Std::getopts("s:w:d:x");
 $sentfile = $opt_s;
