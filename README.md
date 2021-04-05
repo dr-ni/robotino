@@ -1,7 +1,7 @@
 
 # robotino
 
-... a german speech robot
+... a german speech robot based on pocketsphinx
 
 # install deps
 
