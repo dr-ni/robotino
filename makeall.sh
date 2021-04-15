@@ -13,4 +13,5 @@ do
   sudo make install
   popd
 done
+sudo ldconfig
 
