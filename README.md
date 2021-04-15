@@ -9,7 +9,9 @@
   
     cd robotino
     ./deps.sh
-    if mbrola install fails, please install manually
+    
+if mbrola install fails, please install manually
+
     wget http://steinerdatenbank.de/software/mbrola3.0.1h_armhf.deb
     sudo dpkg -i mbrola3.0.1h_armhf.deb
 
