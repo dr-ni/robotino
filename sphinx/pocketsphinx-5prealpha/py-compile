@@ -116,7 +116,12 @@ else
 fi
 
 $PYTHON -c "
-import sys, os, py_compile, imp
+import sys, os, py_compile
+if sys.version_info[0] < 3:
+    import imp
+else:
+    import importlib
+    import importlib.util
 
 files = '''$files'''
 
