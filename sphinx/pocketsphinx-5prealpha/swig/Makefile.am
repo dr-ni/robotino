@@ -1,4 +1,4 @@
-SUBDIRS = python
+#SUBDIRS = python
 
 EXTRA_DIST = \
 	pocketsphinx.i \
