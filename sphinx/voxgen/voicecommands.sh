@@ -1,6 +1,6 @@
 #!/bin/bash
-voicecommands_path=/home/uwe/robotino/sphinx/voxgen
-pilot_path=/home/uwe/pilotx
+voicecommands_path=~/robotino/sphinx/voxgen
+pilot_path=~/pilotx
 voicecmdfile=$voicecommands_path/voicecommands.conf
 audiopath=/var/www/html/audio
 speak=/usr/local/bin/espeak_speak.sh
