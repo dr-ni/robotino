@@ -80,7 +80,7 @@ void TimerStop(int signum) {
     //printf("Timer ran out! Stopping timer\n");
     system("/usr/local/bin/mutepulse.sh");
     listen=0;//printf("listen=%d\n",listen);
-    system("espeak -v mb-de6 -s 160 \"Robotino aus\"");
+    system("espeak -v mb-de6 -s 160 \"ERKENNUNG aus\"");
     system("/usr/local/bin/umutepulse.sh");    
 }
 
@@ -139,19 +139,19 @@ static FILE *rawfd;
 
 void parser(char *line){
 	
-	char cmd[1024]="voicecommands.sh \"\0";
-    if(!strcmp(line, "ROBOTINO EINSCHALTEN")) {
+	char cmd[1024]="/home/uwe/robotino/sphinx/voxgen/voicecommands.sh \"\0";
+    if(!strcmp(line, "ERKENNUNG EINSCHALTEN")) {
           system("/usr/local/bin/mutepulse.sh");
           listen=1;//printf("listen=%d\n",listen);
-          system("espeak -v mb-de6 -s 160 \"ROBOTINO EIN\"");
-          TimerSet(gosleeptime);
+          system("espeak -v mb-de6 -s 160 \"ERKENNUNG EIN\"");
+//          TimerSet(gosleeptime);
           system("/usr/local/bin/umutepulse.sh");
           return;
     }
-    if(!strcmp(line, "ROBOTINO AUSSCHALTEN")) {
+    if(!strcmp(line, "ERKENNUNG AUSSCHALTEN")) {
           system("/usr/local/bin/mutepulse.sh");
           listen=0;//printf("listen=%d\n",listen);
-          system("espeak -v mb-de6 -s 160 \"ROBOTINO Aus\"");
+          system("espeak -v mb-de6 -s 160 \"ERKENNUNG Aus\"");
           system("/usr/local/bin/umutepulse.sh");
           return;
     }
@@ -160,7 +160,7 @@ void parser(char *line){
           return;
     }
 	if(strlen(line)==0) return;
-    TimerSet(gosleeptime);
+//    TimerSet(gosleeptime);
 	strncat(cmd,line,strlen(line));
 	strncat(cmd,"\" &\n",strlen(line));
 	//fprintf(stdout,"%s\n", cmd);
@@ -408,8 +408,8 @@ main(int argc, char *argv[])
     //system("/usr/local/bin/mapmac.sh &\n");
 
     printf("FIRST TIME READY....\n");
-    system("espeak -v mb-de6 \"Hallo, ich heisse robotino und bin nun bereit\">/dev/null");
-    TimerSet(gosleeptime);
+    system("speak \"Spracherkennung bereit\"");
+//    TimerSet(gosleeptime);
     /* Handle argument file as -argfile. */
     if (config && (cfg = cmd_ln_str_r(config, "-argfile")) != NULL) {
         config = cmd_ln_parse_file_r(config, cont_args_def, cfg, FALSE);
